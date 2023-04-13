@@ -18,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    DB::listen(function ($query){
-        logger($query->sql, $query->bindings);
-    });
-
     //find all the  posts with their category loaded and not have to load every time
     return view('posts',[
         'posts' => Post::with('category')->get()
@@ -44,4 +40,11 @@ Route::get('categories/{category:slug}', function (Category $category) { // Post
         'posts' => $category->posts
     ]);
 
+});
+
+Route::get('categories/{category:slug}', function (Category $category) { // Post::where('slug',$category)->category
+
+    return view('posts',[
+        'posts' => $category->posts
+    ]);
 });

@@ -5,9 +5,9 @@
        <div>
         <p>
             By
-            <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a>
+            <a href="/authors/{{$post->author->name}}">{{$post->author->name}}</a>
             in
-            <a href="/authors/{{$post->user->slug}}">{{$post->user->name}}</a>
+            <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a>
         </p>
 
         <p>
